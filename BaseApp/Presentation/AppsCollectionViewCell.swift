@@ -21,8 +21,8 @@ final class AppsCollectionViewCell: UICollectionViewCell {
 			[
 				label.topAnchor.constraint(equalTo: topAnchor),
 				label.bottomAnchor.constraint(equalTo: bottomAnchor),
-				label.leadingAnchor.constraint(equalTo: leadingAnchor),
-				label.trailingAnchor.constraint(equalTo: trailingAnchor),
+				label.centerXAnchor.constraint(equalTo: centerXAnchor),
+				label.centerYAnchor.constraint(equalTo: centerYAnchor),
 			]
 		)
 	}

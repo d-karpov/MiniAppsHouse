@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D33DD4A32C8B03C4005FBA5A /* MiniWeather in Frameworks */ = {isa = PBXBuildFile; productRef = D33DD4A22C8B03C4005FBA5A /* MiniWeather */; };
 		D3AA69502C89F46B005F8C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA694F2C89F46B005F8C0E /* AppDelegate.swift */; };
 		D3AA69522C89F46B005F8C0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA69512C89F46B005F8C0E /* SceneDelegate.swift */; };
 		D3AA69592C89F46C005F8C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AA69582C89F46C005F8C0E /* Assets.xcassets */; };
@@ -31,17 +32,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D33DD4A32C8B03C4005FBA5A /* MiniWeather in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D33DD49A2C8A592C005FBA5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3AA69432C89F46A005F8C0E = {
 			isa = PBXGroup;
 			children = (
 				D3AA694E2C89F46B005F8C0E /* BaseApp */,
 				D3AA694D2C89F46B005F8C0E /* Products */,
+				D33DD49A2C8A592C005FBA5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +117,9 @@
 			dependencies = (
 			);
 			name = BaseApp;
+			packageProductDependencies = (
+				D33DD4A22C8B03C4005FBA5A /* MiniWeather */,
+			);
 			productName = BaseApp;
 			productReference = D3AA694C2C89F46B005F8C0E /* BaseApp.app */;
 			productType = "com.apple.product-type.application";
@@ -135,6 +148,9 @@
 				Base,
 			);
 			mainGroup = D3AA69432C89F46A005F8C0E;
+			packageReferences = (
+				D33DD4A12C8B03C4005FBA5A /* XCLocalSwiftPackageReference "../MiniWeather" */,
+			);
 			productRefGroup = D3AA694D2C89F46B005F8C0E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -308,13 +324,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BaseApp/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,13 +356,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BaseApp/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,6 +403,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D33DD4A12C8B03C4005FBA5A /* XCLocalSwiftPackageReference "../MiniWeather" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../MiniWeather;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D33DD4A22C8B03C4005FBA5A /* MiniWeather */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MiniWeather;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3AA69442C89F46B005F8C0E /* Project object */;
 }

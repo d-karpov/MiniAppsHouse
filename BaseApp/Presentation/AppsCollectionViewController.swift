@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MiniWeather
 
 final class AppsCollectionViewController: UICollectionViewController {
 	private var isSmallLayout = true
@@ -16,13 +17,17 @@ final class AppsCollectionViewController: UICollectionViewController {
 			AppsCollectionViewCell.self,
 			forCellWithReuseIdentifier: AppsCollectionViewCell.identifier
 		)
-		collectionView.collectionViewLayout = makeCollectionBaseLayout(with: collectionView.frame.size)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			image: UIImage(systemName: "rectangle.grid.1x2"),
 			style: .plain,
 			target: self,
 			action: #selector(switchLayout)
 		)
+	}
+	
+	override func viewIsAppearing(_ animated: Bool) {
+		super.viewIsAppearing(animated)
+		collectionView.collectionViewLayout = makeCollectionBaseLayout(with: collectionView.frame.size)
 	}
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
@@ -39,7 +44,7 @@ final class AppsCollectionViewController: UICollectionViewController {
 			withReuseIdentifier: AppsCollectionViewCell.identifier,
 			for: indexPath
 		) as? AppsCollectionViewCell {
-			cell.backgroundColor = .cyan
+			cell.backgroundColor = .lightGray
 			cell.configure(with: indexPath.row.description)
 			return cell
 		}
@@ -48,7 +53,7 @@ final class AppsCollectionViewController: UICollectionViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if isSmallLayout {
-			navigationController?.pushViewController(UIViewController(), animated: true)
+			navigationController?.pushViewController(WeatherViewController(), animated: true)
 		}
 	}
 	
