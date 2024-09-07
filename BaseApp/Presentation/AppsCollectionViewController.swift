@@ -6,19 +6,25 @@
 //
 
 import UIKit
-import MiniWeather
+
+protocol IAppsCollectionView: AnyObject {
+	func render(with viewModel: AppsCollectionViewModel)
+}
 
 final class AppsCollectionViewController: UICollectionViewController {
-	private var isSmallLayout = true
+	var presenter: IAppsCollectionPresenter?
+	private var viewModel: AppsCollectionViewModel?
 	
+	//MARK: - LifeCycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		presenter?.viewIsReady()
 		collectionView.register(
 			AppsCollectionViewCell.self,
 			forCellWithReuseIdentifier: AppsCollectionViewCell.identifier
 		)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
-			image: UIImage(systemName: "rectangle.grid.1x2"),
+			image: viewModel?.layoutIcon,
 			style: .plain,
 			target: self,
 			action: #selector(switchLayout)
@@ -27,61 +33,61 @@ final class AppsCollectionViewController: UICollectionViewController {
 	
 	override func viewIsAppearing(_ animated: Bool) {
 		super.viewIsAppearing(animated)
-		collectionView.collectionViewLayout = makeCollectionBaseLayout(with: collectionView.frame.size)
+		presenter?.setUpLayout(with: view.frame.size)
 	}
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
-		collectionView.collectionViewLayout = makeCollectionBaseLayout(with: size)
+		presenter?.setUpLayout(with: size)
 	}
 	
+	//MARK: - CollectionView Methods
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		10
+		viewModel?.appsCount ?? 0
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		if let cell = collectionView.dequeueReusableCell(
-			withReuseIdentifier: AppsCollectionViewCell.identifier,
-			for: indexPath
-		) as? AppsCollectionViewCell {
-			cell.backgroundColor = .lightGray
-			cell.configure(with: indexPath.row.description)
+		if 
+			let cell = collectionView.dequeueReusableCell(
+				withReuseIdentifier: AppsCollectionViewCell.identifier,
+				for: indexPath
+			) as? AppsCollectionViewCell,
+			let presenter
+		{
+			presenter.prepareCell(cell: cell, for: indexPath)
 			return cell
 		}
 		return UICollectionViewCell()
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		if isSmallLayout {
-			navigationController?.pushViewController(WeatherViewController(), animated: true)
-		}
+		presenter?.fullScreen(for: indexPath)
 	}
 	
-	
-	@objc func switchLayout() {
-		isSmallLayout.toggle()
-		collectionView.setCollectionViewLayout(makeCollectionBaseLayout(with: collectionView.frame.size), animated: true)
+	@objc private func switchLayout() {
+		presenter?.changeLayout()
+		presenter?.setUpLayout(with: view.frame.size)
+	}
+}
+
+extension AppsCollectionViewController: IAppsCollectionView {
+	func render(with viewModel: AppsCollectionViewModel) {
+		self.viewModel = viewModel
+		collectionView.reloadData()
+		collectionView.setCollectionViewLayout(viewModel.layout, animated: true)
 		UIView.animate(withDuration: 0.3) {
-			self.navigationItem.rightBarButtonItem?.image = UIImage(
-				systemName: self.isSmallLayout ? "rectangle.grid.1x2" : "rectangle"
-			)
+			self.navigationItem.rightBarButtonItem?.image = viewModel.layoutIcon
 		}
 	}
 }
 
-private extension AppsCollectionViewController {
-	func makeCollectionBaseLayout(with size: CGSize) -> UICollectionViewLayout {
-		let layout = UICollectionViewFlowLayout()
-		layout.scrollDirection = .vertical
-		layout.minimumLineSpacing = 6
-		layout.itemSize = .init(
-			width: size.width,
-			height: isSmallLayout ? size.height/8 : size.height/2
-		)
-		return layout
-	}
-}
 
 #Preview {
-	UINavigationController(rootViewController: AppsCollectionViewController(collectionViewLayout: .init()))
+	let view = AppsCollectionViewController(collectionViewLayout: .init())
+	let presenter = AppsCollectionPresenter(
+		appsStorage: MiniAppsStorage.shared,
+		view: view
+	)
+	view.presenter = presenter
+	return UINavigationController(rootViewController: view)
 }

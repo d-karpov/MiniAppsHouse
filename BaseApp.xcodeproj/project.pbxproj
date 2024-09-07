@@ -14,6 +14,11 @@
 		D3AA695C2C89F46C005F8C0E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D3AA695B2C89F46C005F8C0E /* Base */; };
 		D3AA69682C89F5A0005F8C0E /* AppsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA69672C89F5A0005F8C0E /* AppsCollectionViewController.swift */; };
 		D3AA696A2C8A2B07005F8C0E /* AppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA69692C8A2B07005F8C0E /* AppsCollectionViewCell.swift */; };
+		D3CE25D22C8C880B00CEB75D /* CurrentCity in Frameworks */ = {isa = PBXBuildFile; productRef = D3CE25D12C8C880B00CEB75D /* CurrentCity */; };
+		D3CE25D52C8C886A00CEB75D /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25D42C8C886A00CEB75D /* Array+.swift */; };
+		D3CE25DA2C8C96B300CEB75D /* MiniAppsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25D92C8C96B300CEB75D /* MiniAppsStorage.swift */; };
+		D3CE25DC2C8CADD300CEB75D /* AppsCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25DB2C8CADD300CEB75D /* AppsCollectionPresenter.swift */; };
+		D3CE25E12C8CC93900CEB75D /* AppsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,10 @@
 		D3AA695D2C89F46C005F8C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3AA69672C89F5A0005F8C0E /* AppsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewController.swift; sourceTree = "<group>"; };
 		D3AA69692C8A2B07005F8C0E /* AppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3CE25D42C8C886A00CEB75D /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		D3CE25D92C8C96B300CEB75D /* MiniAppsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniAppsStorage.swift; sourceTree = "<group>"; };
+		D3CE25DB2C8CADD300CEB75D /* AppsCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionPresenter.swift; sourceTree = "<group>"; };
+		D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33DD4A32C8B03C4005FBA5A /* MiniWeather in Frameworks */,
+				D3CE25D22C8C880B00CEB75D /* CurrentCity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,9 +76,12 @@
 		D3AA694E2C89F46B005F8C0E /* BaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				D3CE25D82C8C969C00CEB75D /* Servicies */,
+				D3CE25D32C8C885A00CEB75D /* Extensions */,
 				D3AA69652C89F566005F8C0E /* Presentation */,
 				D3AA69632C89F48C005F8C0E /* Configuration */,
 				D3AA69642C89F49C005F8C0E /* Resources */,
+				D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */,
 			);
 			path = BaseApp;
 			sourceTree = "<group>";
@@ -97,8 +110,25 @@
 			children = (
 				D3AA69672C89F5A0005F8C0E /* AppsCollectionViewController.swift */,
 				D3AA69692C8A2B07005F8C0E /* AppsCollectionViewCell.swift */,
+				D3CE25DB2C8CADD300CEB75D /* AppsCollectionPresenter.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D3CE25D32C8C885A00CEB75D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3CE25D42C8C886A00CEB75D /* Array+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D3CE25D82C8C969C00CEB75D /* Servicies */ = {
+			isa = PBXGroup;
+			children = (
+				D3CE25D92C8C96B300CEB75D /* MiniAppsStorage.swift */,
+			);
+			path = Servicies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +149,7 @@
 			name = BaseApp;
 			packageProductDependencies = (
 				D33DD4A22C8B03C4005FBA5A /* MiniWeather */,
+				D3CE25D12C8C880B00CEB75D /* CurrentCity */,
 			);
 			productName = BaseApp;
 			productReference = D3AA694C2C89F46B005F8C0E /* BaseApp.app */;
@@ -150,6 +181,7 @@
 			mainGroup = D3AA69432C89F46A005F8C0E;
 			packageReferences = (
 				D33DD4A12C8B03C4005FBA5A /* XCLocalSwiftPackageReference "../MiniWeather" */,
+				D3CE25D02C8C880B00CEB75D /* XCLocalSwiftPackageReference "../CurrentCity" */,
 			);
 			productRefGroup = D3AA694D2C89F46B005F8C0E /* Products */;
 			projectDirPath = "";
@@ -177,10 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CE25DC2C8CADD300CEB75D /* AppsCollectionPresenter.swift in Sources */,
 				D3AA69502C89F46B005F8C0E /* AppDelegate.swift in Sources */,
 				D3AA69682C89F5A0005F8C0E /* AppsCollectionViewController.swift in Sources */,
 				D3AA696A2C8A2B07005F8C0E /* AppsCollectionViewCell.swift in Sources */,
+				D3CE25E12C8CC93900CEB75D /* AppsCollectionViewModel.swift in Sources */,
 				D3AA69522C89F46B005F8C0E /* SceneDelegate.swift in Sources */,
+				D3CE25D52C8C886A00CEB75D /* Array+.swift in Sources */,
+				D3CE25DA2C8C96B300CEB75D /* MiniAppsStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,12 +445,20 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../MiniWeather;
 		};
+		D3CE25D02C8C880B00CEB75D /* XCLocalSwiftPackageReference "../CurrentCity" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../CurrentCity;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		D33DD4A22C8B03C4005FBA5A /* MiniWeather */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MiniWeather;
+		};
+		D3CE25D12C8C880B00CEB75D /* CurrentCity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CurrentCity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
