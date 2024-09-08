@@ -76,12 +76,12 @@
 		D3AA694E2C89F46B005F8C0E /* BaseApp */ = {
 			isa = PBXGroup;
 			children = (
-				D3CE25D82C8C969C00CEB75D /* Servicies */,
-				D3CE25D32C8C885A00CEB75D /* Extensions */,
-				D3AA69652C89F566005F8C0E /* Presentation */,
 				D3AA69632C89F48C005F8C0E /* Configuration */,
+				D3CE25D32C8C885A00CEB75D /* Extensions */,
+				D3CE25E22C8D09A600CEB75D /* Models */,
+				D3AA69652C89F566005F8C0E /* Presentation */,
+				D3CE25D82C8C969C00CEB75D /* Servicies */,
 				D3AA69642C89F49C005F8C0E /* Resources */,
-				D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */,
 			);
 			path = BaseApp;
 			sourceTree = "<group>";
@@ -129,6 +129,14 @@
 				D3CE25D92C8C96B300CEB75D /* MiniAppsStorage.swift */,
 			);
 			path = Servicies;
+			sourceTree = "<group>";
+		};
+		D3CE25E22C8D09A600CEB75D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,7 +368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Q4Z7G73VJ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BaseApp/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -392,7 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Q4Z7G73VJ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BaseApp/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

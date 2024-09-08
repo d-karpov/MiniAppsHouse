@@ -70,6 +70,7 @@ final class AppsCollectionViewController: UICollectionViewController {
 	}
 }
 
+//MARK: - IAppsCollectionView Implementation
 extension AppsCollectionViewController: IAppsCollectionView {
 	func render(with viewModel: AppsCollectionViewModel) {
 		self.viewModel = viewModel

@@ -16,7 +16,7 @@ protocol IAppsCollectionPresenter {
 }
 
 final class AppsCollectionPresenter {
-	private let appsStorage: IMiniAppsStorage
+	let appsStorage: IMiniAppsStorage
 	private var viewModel: AppsCollectionViewModel
 	private var viewController: UIViewController? {
 		view as? UIViewController
@@ -64,14 +64,12 @@ extension AppsCollectionPresenter: IAppsCollectionPresenter {
 	
 	func prepareCell(cell: AppsCollectionViewCell, for indexPath: IndexPath) {
 		cell.backgroundColor = .lightGray
+		let app = appsStorage.getApp(by: indexPath.row)
+		let viewController = appsStorage.getAppViewController(by: indexPath.row)
 		if viewModel.isLayoutSmall {
-			let app = appsStorage.getApp(by: indexPath.row)
 			cell.configure(with: app.appName, icon: app.icon)
 		} else {
-			let viewController = appsStorage.getAppViewController(by: indexPath.row)
-			self.viewController?.addChild(viewController)
 			cell.configure(with: viewController)
-			viewController.didMove(toParent: self.viewController)
 		}
 	}
 	

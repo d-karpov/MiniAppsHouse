@@ -25,7 +25,10 @@ protocol IMiniAppsStorage {
 
 final class MiniAppsStorage {
 	static let shared: MiniAppsStorage = .init()
-	private let baseApps = [CurrentCity.self, MiniWeather.self] as [IMiniAppInterface.Type]
+	private let baseApps = [
+		CurrentCity.self, 
+		MiniWeather.self
+	] as [IMiniAppInterface.Type]
 	private var apps: [IMiniAppInterface.Type]
 	private var viewControllers: [UIViewController]
 	

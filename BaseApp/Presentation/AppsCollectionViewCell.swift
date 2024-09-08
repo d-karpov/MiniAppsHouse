@@ -19,6 +19,7 @@ final class AppsCollectionViewCell: UICollectionViewCell {
 	}
 	
 	override func prepareForReuse() {
+		super.prepareForReuse()
 		clearCellContent()
 	}
 	
@@ -35,7 +36,6 @@ final class AppsCollectionViewCell: UICollectionViewCell {
 	}
 	
 	func configure(with viewController: UIViewController) {
-		clearCellContent()
 		viewController.view.frame = contentView.bounds
 		contentView.addSubview(viewController.view)
 	}
