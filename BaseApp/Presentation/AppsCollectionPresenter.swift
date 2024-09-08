@@ -67,11 +67,13 @@ extension AppsCollectionPresenter: IAppsCollectionPresenter {
 		cell.backgroundColor = .lightGray
 		let app = appsStorage.getApp(by: indexPath.row)
 		let viewController = appsStorage.getAppViewController(by: indexPath.row)
+		self.viewController?.addChild(viewController)
 		if viewModel.isLayoutSmall {
 			cell.configure(with: app.appName, icon: app.icon)
 		} else {
 			cell.configure(with: viewController)
 		}
+		viewController.didMove(toParent: self.viewController)
 	}
 	
 	func fullScreen(for indexPath: IndexPath) {

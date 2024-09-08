@@ -8,7 +8,11 @@
 import UIKit
 import MiniWeather
 import CurrentCity
+import JokeGenerator
 
+
+///Используется для обобщения интерфейса мини приложений.
+///Для интеграции необходимо подписать приложение под этот протокол
 protocol IMiniAppInterface {
 	static var icon: UIImage? { get }
 	static var appName: String { get }
@@ -17,17 +21,21 @@ protocol IMiniAppInterface {
 
 extension CurrentCity: IMiniAppInterface { }
 extension MiniWeather: IMiniAppInterface { }
+extension JokeGenerator: IMiniAppInterface { }
 
 protocol IMiniAppsStorage {
 	func getApp(by index: Int) -> IMiniAppInterface.Type
 	func getAppViewController(by index: Int) -> UIViewController
 }
-
+///Используется как хранилище мини-приложений, требуемое количество приложений
+///задается в AppsCollectionPresenter. Для добавления в список на генерацию необходимо добавить
+///класс мини-приложения в массив baseApps данного синглтона. Далее приложения генерируются в случайном порядке
 final class MiniAppsStorage {
 	static let shared: MiniAppsStorage = .init()
 	private let baseApps = [
 		CurrentCity.self, 
-		MiniWeather.self
+		MiniWeather.self,
+		JokeGenerator.self
 	] as [IMiniAppInterface.Type]
 	private var apps: [IMiniAppInterface.Type]
 	private var viewControllers: [UIViewController]
@@ -47,6 +55,7 @@ final class MiniAppsStorage {
 	}
 }
 
+//MARK: - IMiniAppsStorage Implenetation
 extension MiniAppsStorage: IMiniAppsStorage {
 	func getAppViewController(by index: Int) -> UIViewController {
 		guard let viewController = viewControllers[safe: index] else {

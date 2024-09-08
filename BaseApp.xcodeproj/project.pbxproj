@@ -19,6 +19,7 @@
 		D3CE25DA2C8C96B300CEB75D /* MiniAppsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25D92C8C96B300CEB75D /* MiniAppsStorage.swift */; };
 		D3CE25DC2C8CADD300CEB75D /* AppsCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25DB2C8CADD300CEB75D /* AppsCollectionPresenter.swift */; };
 		D3CE25E12C8CC93900CEB75D /* AppsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */; };
+		D3D9EBC12C8E018D006AE472 /* JokeGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = D3D9EBC02C8E018D006AE472 /* JokeGenerator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D9EBC12C8E018D006AE472 /* JokeGenerator in Frameworks */,
 				D33DD4A32C8B03C4005FBA5A /* MiniWeather in Frameworks */,
 				D3CE25D22C8C880B00CEB75D /* CurrentCity in Frameworks */,
 			);
@@ -158,6 +160,7 @@
 			packageProductDependencies = (
 				D33DD4A22C8B03C4005FBA5A /* MiniWeather */,
 				D3CE25D12C8C880B00CEB75D /* CurrentCity */,
+				D3D9EBC02C8E018D006AE472 /* JokeGenerator */,
 			);
 			productName = BaseApp;
 			productReference = D3AA694C2C89F46B005F8C0E /* BaseApp.app */;
@@ -190,6 +193,7 @@
 			packageReferences = (
 				D33DD4A12C8B03C4005FBA5A /* XCLocalSwiftPackageReference "../MiniWeather" */,
 				D3CE25D02C8C880B00CEB75D /* XCLocalSwiftPackageReference "../CurrentCity" */,
+				D3D9EBBF2C8E018D006AE472 /* XCLocalSwiftPackageReference "../JokeGenerator" */,
 			);
 			productRefGroup = D3AA694D2C89F46B005F8C0E /* Products */;
 			projectDirPath = "";
@@ -457,6 +461,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../CurrentCity;
 		};
+		D3D9EBBF2C8E018D006AE472 /* XCLocalSwiftPackageReference "../JokeGenerator" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../JokeGenerator;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -467,6 +475,10 @@
 		D3CE25D12C8C880B00CEB75D /* CurrentCity */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CurrentCity;
+		};
+		D3D9EBC02C8E018D006AE472 /* JokeGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JokeGenerator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

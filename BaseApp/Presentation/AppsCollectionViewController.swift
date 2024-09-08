@@ -29,6 +29,7 @@ final class AppsCollectionViewController: UICollectionViewController {
 			target: self,
 			action: #selector(switchLayout)
 		)
+		navigationController?.navigationBar.tintColor = .black
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
