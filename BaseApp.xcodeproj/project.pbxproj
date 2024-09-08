@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D33DD4A32C8B03C4005FBA5A /* MiniWeather in Frameworks */ = {isa = PBXBuildFile; productRef = D33DD4A22C8B03C4005FBA5A /* MiniWeather */; };
 		D3AA69502C89F46B005F8C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA694F2C89F46B005F8C0E /* AppDelegate.swift */; };
 		D3AA69522C89F46B005F8C0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA69512C89F46B005F8C0E /* SceneDelegate.swift */; };
 		D3AA69592C89F46C005F8C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AA69582C89F46C005F8C0E /* Assets.xcassets */; };
@@ -20,6 +19,9 @@
 		D3CE25DC2C8CADD300CEB75D /* AppsCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25DB2C8CADD300CEB75D /* AppsCollectionPresenter.swift */; };
 		D3CE25E12C8CC93900CEB75D /* AppsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CE25E02C8CC93900CEB75D /* AppsCollectionViewModel.swift */; };
 		D3D9EBC12C8E018D006AE472 /* JokeGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = D3D9EBC02C8E018D006AE472 /* JokeGenerator */; };
+		D3D9EBC42C8E1694006AE472 /* MiniWeather in Frameworks */ = {isa = PBXBuildFile; productRef = D3D9EBC32C8E1694006AE472 /* MiniWeather */; };
+		D3D9EBC72C8E17BD006AE472 /* JokeGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = D3D9EBC62C8E17BD006AE472 /* JokeGenerator */; };
+		D3D9EBCA2C8E18A9006AE472 /* CurrentCity in Frameworks */ = {isa = PBXBuildFile; productRef = D3D9EBC92C8E18A9006AE472 /* CurrentCity */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +44,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D9EBCA2C8E18A9006AE472 /* CurrentCity in Frameworks */,
+				D3D9EBC42C8E1694006AE472 /* MiniWeather in Frameworks */,
+				D3D9EBC72C8E17BD006AE472 /* JokeGenerator in Frameworks */,
 				D3D9EBC12C8E018D006AE472 /* JokeGenerator in Frameworks */,
-				D33DD4A32C8B03C4005FBA5A /* MiniWeather in Frameworks */,
 				D3CE25D22C8C880B00CEB75D /* CurrentCity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,9 +162,11 @@
 			);
 			name = BaseApp;
 			packageProductDependencies = (
-				D33DD4A22C8B03C4005FBA5A /* MiniWeather */,
 				D3CE25D12C8C880B00CEB75D /* CurrentCity */,
 				D3D9EBC02C8E018D006AE472 /* JokeGenerator */,
+				D3D9EBC32C8E1694006AE472 /* MiniWeather */,
+				D3D9EBC62C8E17BD006AE472 /* JokeGenerator */,
+				D3D9EBC92C8E18A9006AE472 /* CurrentCity */,
 			);
 			productName = BaseApp;
 			productReference = D3AA694C2C89F46B005F8C0E /* BaseApp.app */;
@@ -191,9 +197,9 @@
 			);
 			mainGroup = D3AA69432C89F46A005F8C0E;
 			packageReferences = (
-				D33DD4A12C8B03C4005FBA5A /* XCLocalSwiftPackageReference "../MiniWeather" */,
-				D3CE25D02C8C880B00CEB75D /* XCLocalSwiftPackageReference "../CurrentCity" */,
-				D3D9EBBF2C8E018D006AE472 /* XCLocalSwiftPackageReference "../JokeGenerator" */,
+				D3D9EBC22C8E1694006AE472 /* XCRemoteSwiftPackageReference "MiniWeather" */,
+				D3D9EBC52C8E17BD006AE472 /* XCRemoteSwiftPackageReference "JokeGenerator" */,
+				D3D9EBC82C8E18A9006AE472 /* XCRemoteSwiftPackageReference "CurrentCity" */,
 			);
 			productRefGroup = D3AA694D2C89F46B005F8C0E /* Products */;
 			projectDirPath = "";
@@ -452,26 +458,34 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		D33DD4A12C8B03C4005FBA5A /* XCLocalSwiftPackageReference "../MiniWeather" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../MiniWeather;
+/* Begin XCRemoteSwiftPackageReference section */
+		D3D9EBC22C8E1694006AE472 /* XCRemoteSwiftPackageReference "MiniWeather" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/d-karpov/MiniWeather.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-		D3CE25D02C8C880B00CEB75D /* XCLocalSwiftPackageReference "../CurrentCity" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../CurrentCity;
+		D3D9EBC52C8E17BD006AE472 /* XCRemoteSwiftPackageReference "JokeGenerator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/d-karpov/JokeGenerator.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-		D3D9EBBF2C8E018D006AE472 /* XCLocalSwiftPackageReference "../JokeGenerator" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../JokeGenerator;
+		D3D9EBC82C8E18A9006AE472 /* XCRemoteSwiftPackageReference "CurrentCity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/d-karpov/CurrentCity.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D33DD4A22C8B03C4005FBA5A /* MiniWeather */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MiniWeather;
-		};
 		D3CE25D12C8C880B00CEB75D /* CurrentCity */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CurrentCity;
@@ -479,6 +493,21 @@
 		D3D9EBC02C8E018D006AE472 /* JokeGenerator */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JokeGenerator;
+		};
+		D3D9EBC32C8E1694006AE472 /* MiniWeather */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3D9EBC22C8E1694006AE472 /* XCRemoteSwiftPackageReference "MiniWeather" */;
+			productName = MiniWeather;
+		};
+		D3D9EBC62C8E17BD006AE472 /* JokeGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3D9EBC52C8E17BD006AE472 /* XCRemoteSwiftPackageReference "JokeGenerator" */;
+			productName = JokeGenerator;
+		};
+		D3D9EBC92C8E18A9006AE472 /* CurrentCity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3D9EBC82C8E18A9006AE472 /* XCRemoteSwiftPackageReference "CurrentCity" */;
+			productName = CurrentCity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
