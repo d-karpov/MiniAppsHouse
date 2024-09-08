@@ -31,9 +31,9 @@ final class AppsCollectionViewController: UICollectionViewController {
 		)
 	}
 	
-	override func viewIsAppearing(_ animated: Bool) {
-		super.viewIsAppearing(animated)
-		presenter?.setUpLayout(with: view.frame.size)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		collectionView.reloadData()
 	}
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
@@ -47,7 +47,7 @@ final class AppsCollectionViewController: UICollectionViewController {
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		if 
+		if
 			let cell = collectionView.dequeueReusableCell(
 				withReuseIdentifier: AppsCollectionViewCell.identifier,
 				for: indexPath

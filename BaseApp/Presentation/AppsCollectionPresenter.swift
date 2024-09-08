@@ -54,6 +54,7 @@ extension AppsCollectionPresenter: IAppsCollectionPresenter {
 	
 	func viewIsReady() {
 		viewModel.layoutIcon = UIImage(systemName: "rectangle.grid.1x2")
+		viewModel.layout = makeCollectionLayout(with: UIScreen.main.bounds.size)
 		view?.render(with: viewModel)
 	}
 	

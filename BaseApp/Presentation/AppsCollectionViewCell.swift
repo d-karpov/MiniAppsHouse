@@ -11,8 +11,9 @@ import UIKit
 final class AppsCollectionViewCell: UICollectionViewCell {
 	static let identifier: String = "AppsCollectionViewCell"
 	
-	private let label: UILabel = .init()
 	private lazy var imageView: UIImageView = .init()
+	private let label: UILabel = .init()
+	private let activityIndicator: UIActivityIndicatorView = .init(style: .large)
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -21,6 +22,7 @@ final class AppsCollectionViewCell: UICollectionViewCell {
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		clearCellContent()
+		setUpActivityIndicator()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -28,11 +30,11 @@ final class AppsCollectionViewCell: UICollectionViewCell {
 	}
 	
 	func configure(with text: String, icon: UIImage?) {
+		activityIndicator.stopAnimating()
 		if let icon {
 			setUpIcon(with: icon)
 		}
 		setUpLabel(with: text)
-		
 	}
 	
 	func configure(with viewController: UIViewController) {
@@ -68,6 +70,18 @@ final class AppsCollectionViewCell: UICollectionViewCell {
 			]
 		)
 		label.text = text
+	}
+	
+	private func setUpActivityIndicator() {
+		contentView.addSubview(activityIndicator)
+		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate(
+			[
+				activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+				activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
+			]
+		)
+		activityIndicator.startAnimating()
 	}
 	
 	private func clearCellContent() {
